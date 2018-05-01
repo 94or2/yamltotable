@@ -1,0 +1,14 @@
+name: サトシ
+age: 10
+job: トレーナー
+pokemon:
+  name: ピカチュウ
+  type: でんき
+  level: 26
+  art:
+    -
+      name: 10まんボルト
+      effect: でんきタイプのダメージを与える
+    -
+      name: でんじは
+      effect: 相手をマヒ状態にする

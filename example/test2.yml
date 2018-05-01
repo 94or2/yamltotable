@@ -1,0 +1,68 @@
+version: 1.0
+character:
+  -
+    name: レッド
+    job: トレーナー
+    age: 10
+    house:
+      address: マサラタウン
+      type: 一軒家
+    pokemon:
+      -
+        name: ピカチュウ
+        level: 26
+        type:
+          - でんき
+        art:
+          - 10まんボルト
+          - でんこうせっか
+          - かげぶんしん
+          - でんじは
+        property:
+          - オレンのみ
+      -
+        name: フシギダネ
+        level: 18
+        type:
+          - くさ
+          - どく
+        art:
+          - つるのむち
+          - たいあたり
+          - やどりぎのタネ
+          - しびれごな
+
+  -
+    name: カスミ
+    age: 10
+    job: ジムリーダー
+    house:
+      address: ハナダシティ
+      type: ジム
+    pokemon:
+      -
+        name: ヒトデマン
+        level: 18
+        type:
+          - みず
+        art:
+          - あわ
+          - みずでっぽう
+          - たいあたり
+      -
+        name: スターミー
+        level: 21
+        type:
+          - みず
+          - エスパー
+        art:
+          - バブルこうせん
+          - みずでっぽう
+          - たいあたり
+  -
+    name: オーキド
+    job: ポケモン博士
+    age: 55
+    house:
+      address: マサラタウン
+      type: 研究所
