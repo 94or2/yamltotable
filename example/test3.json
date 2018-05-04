@@ -1,0 +1,27 @@
+{
+  "town": [
+    {
+      "name": "マサラタウン",
+      "pokemon_center": false,
+      "gym": false,
+      "citizen": ["レッド", "グリーン", "オーキド博士"]
+    },
+    {
+      "name": "ヤマブキシティ",
+      "pokemon_center": true,
+      "gym": true,
+      "citizen": ["ナツメ", "かくとうおう", "エスパーおやじ"],
+      "landmark": [
+        {"name": "シルフカンパニー", "explain": "マスターボール配給所"}
+      ]
+    },
+    {
+      "name": "シオンタウン",
+      "pokemon_center": true,
+      "gym": false,
+      "landmark": [
+        {"name": "ポケモンタワー", "explain": "墓地"}
+      ]
+    }
+  ]
+}

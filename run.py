@@ -2,13 +2,14 @@
 from os.path import splitext
 import argparse
 import yaml
+import json
 from tabular.tabular import Tabular, MarkdownTabular, AsciiDocTabular
 
 
-def run(args):
-    yml_file_name = args.yml_file
-    output = args.output
+def set_config(args):
     tabular_cls = Tabular
+    file_name = args.yml_file
+    name, ext = splitext(file_name)
     out_ext = '.txt'
     if args.markdown:
         tabular_cls = MarkdownTabular
@@ -20,13 +21,21 @@ def run(args):
         tabular_cls = Tabular
         out_ext = '.csv'
 
-    with open(yml_file_name, 'r') as yml_file:
-        data = yaml.load(yml_file)
+    file_parser = yaml
+    if args.json or ext == 'json':
+        file_parser = json
+    output = args.output
+    if not output:
+        output = name + out_ext
+
+    return file_name, file_parser, tabular_cls, output
+
+def run(args):
+    file_name, file_parser, tabular_cls, output = set_config(args)
+    with open(file_name, 'r') as yml_file:
+        data = file_parser.load(yml_file)
     t = tabular_cls.from_dict(data, table_name='ポケモンの登場人物')
     result = t.render()
-    if not output:
-        output, ext = splitext(yml_file_name)
-        output += out_ext
     with open(output, 'w') as out:
         out.write(result)
     print('output into {}'.format(output))
@@ -37,6 +46,7 @@ if __name__ == '__main__':
     parser.add_argument('yml_file', help='target yaml file to convert')
     parser.add_argument('-o', '--output',
                         help='output file name. If no designation, replace file extension following table style')
+    parser.add_argument('-j', '--json', action='store_true', default=0, help='json file convert mode')
     group = parser.add_mutually_exclusive_group()
     group.add_argument('-md', '--markdown', action='store_true', default=1, help='as markdown style')
     group.add_argument('-ad', '--asciidoc', action='store_true', default=0, help='as AsciiDoc style')
