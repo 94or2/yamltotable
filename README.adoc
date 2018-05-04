@@ -1,6 +1,6 @@
 = yamltotable
 
-yamlファイルの中身をmarkdownやasciidocのtabbler形式にパースする
+yamlファイルの中身をmarkdownやasciidocのtabular形式にパースする
 
 
 == How to use
@@ -21,7 +21,8 @@ pip install -r requirements.txt
 === options
 
 ....
-usage: run.py [-h] [-o OUTPUT] [-j] [-md | -ad | --csv] yml_file
+usage: run.py [-h] [-o OUTPUT] [-t TABLENAME] [-j] [-md | -ad | --csv]
+              yml_file
 
 convert yaml file into tabular text(csv, markdown, AsciiDoc)
 
@@ -33,6 +34,8 @@ optional arguments:
   -o OUTPUT, --output OUTPUT
                         output file name. If no designation, replace file
                         extension following table style
+  -t TABLENAME, --tablename TABLENAME
+                        set table name (default: file name base)
   -j, --json            json file convert mode
   -md, --markdown       as markdown style
   -ad, --asciidoc       as AsciiDoc style
@@ -54,7 +57,7 @@ optional arguments:
 -> link:example/test2.adoc[test2.adoc]
 
 ....
-./y2tb -j example/test3.json  # convert json file
+./y2tb -j example/test3.json -t towns  # convert json file
 ....
 
 -> link:example/test3.md[test3.md]

@@ -1,4 +1,4 @@
-## ポケモンの登場人物
+## towns
 
 |town_name|town_pokemon_center|town_gym|town_citizen|town_landmark_name|town_landmark_explain|
 |:--|:--|:--|:--|:--|:--|
